@@ -167,7 +167,7 @@ class WebAustin(AsyncAustin):
                 "type": "info",
                 "pid": self.get_pid(),
                 "command": self.get_cmd_line(),
-                "metric": "m" if self.args.memory else "t",
+                "metric": "m" if self.args and self.args.memory else "t",
             }
 
             await ws.send_str(json.dumps(payload))
